@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\EasyClinic.Server.props" />
+</Project>
