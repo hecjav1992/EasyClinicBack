@@ -33,3 +33,4 @@ C:\Users\Easy Data\source\repos\EasyClinic\EasyClinic.Server\obj\Debug\net8.0\re
 C:\Users\Easy Data\source\repos\EasyClinic\EasyClinic.Server\obj\Debug\net8.0\EasyClinic.Server.pdb
 C:\Users\Easy Data\source\repos\EasyClinic\EasyClinic.Server\obj\Debug\net8.0\EasyClinic.Server.genruntimeconfig.cache
 C:\Users\Easy Data\source\repos\EasyClinic\EasyClinic.Server\obj\Debug\net8.0\ref\EasyClinic.Server.dll
+C:\Users\Easy Data\source\repos\EasyClinic\EasyClinic.Server\obj\Debug\net8.0\EasyClinic.Server.sourcelink.json
