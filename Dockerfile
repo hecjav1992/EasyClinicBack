@@ -3,14 +3,14 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 # Copiar archivo .csproj y restaurar dependencias
-COPY SistemaDeVisitaCampeon.Server.csproj ./
-RUN dotnet restore SistemaDeVisitaCampeon.Server.csproj
+COPY EasyClinic.Server.csproj ./
+RUN dotnet restore EasyClinic.Server.csproj
 
 # Copiar el resto del código
 COPY . ./
 
 # Publicar en modo Release
-RUN dotnet publish SistemaDeVisitaCampeon.Server.csproj -c Release -o /out
+RUN dotnet publish EasyClinic.Server.csproj -c Release -o /out
 
 # Etapa 2: Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
