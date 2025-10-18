@@ -18,7 +18,7 @@ namespace EasyClinic.Server.Controllers
 
         public async Task<IActionResult> Post([FromBody]  LoginRequest request)
         {
-            var user = await _context.Usuario
+            var user = await _context.Usuarios
             .Where(u => u.usuario == request.usuario && u.contrasena == request.contrasena)
             .Select(u => new {
                 u.id_usuario,
