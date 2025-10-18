@@ -16,7 +16,7 @@ namespace EasyClinic.Server.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Post(LoginRequest request)
+        public async Task<IActionResult> Post([FromBody]  LoginRequest request)
         {
             var user = await _context.user
             .Where(u => u.usuario == request.usuario && u.contrasena == request.contrasena)

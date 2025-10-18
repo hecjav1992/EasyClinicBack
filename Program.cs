@@ -20,8 +20,8 @@ builder.Services.AddCors(options =>
         policy =>
         {
             policy.WithOrigins(
-                "https://easyclinicback.onrender.com",
-                "https://localhost:4200")
+                "https://easyclinicback.onrender.com/",
+                "https://localhost:4200/")
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
