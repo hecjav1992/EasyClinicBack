@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+﻿using Microsoft.AspNetCore.Identity.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EasyClinic.Server.Controllers
 {
@@ -8,36 +8,45 @@ namespace EasyClinic.Server.Controllers
     [ApiController]
     public class LogingController : ControllerBase
     {
-        // GET: api/<LogingController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+
+        private readonly AppDbContext _context;
+
+        public LogingController(AppDbContext context)
         {
-            return new string[] { "value1", "value2" };
+            _context = context;
         }
 
-        // GET api/<LogingController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Post(LoginRequest request)
         {
-            return "value";
+            var user = await _context.user
+            .Where(u => u.usuario == request.usuario && u.contrasena == request.contrasena)
+            .Select(u => new {
+                u.id_usuario,
+                u.usuario,
+                u.contrasena,
+                u.rol
+            })
+             .FirstOrDefaultAsync();
+
+            if (user != null)
+            {
+
+                return Ok(new { success = true, token = "token_generado_123", message = user.rol });
+            }
+
+            return Unauthorized(new { success = false, message = "Credenciales inválidas" });
+
+           
+
         }
 
-        // POST api/<LogingController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        public class LoginRequest
         {
+            public string? usuario { get; set; }
+            public string? contrasena { get; set; }
+            public string? rol { get; set; }
         }
 
-        // PUT api/<LogingController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
 
-        // DELETE api/<LogingController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

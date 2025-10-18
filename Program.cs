@@ -1,6 +1,13 @@
-var builder = WebApplication.CreateBuilder(args);
+using EasyClinic.Server;
+using Microsoft.EntityFrameworkCore;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.ListenAnyIP(80);
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
