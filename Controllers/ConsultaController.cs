@@ -25,7 +25,7 @@ namespace EasyClinic.Server.Controllers
                     u.Ocupacion_paciente
       
                 })
-                .FirstOrDefaultAsync();
+                .ToListAsync();
             return Ok(pacientes);
         }
      
