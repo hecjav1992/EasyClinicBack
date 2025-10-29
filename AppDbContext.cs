@@ -14,12 +14,9 @@ namespace EasyClinic.Server
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Usuarios>().ToTable("Usuarios");
-            modelBuilder.Entity<Pacientes>().ToTable("PACIENTES_DATA");
-            modelBuilder.Entity<Pacientes>()
-                .Property(p => p.nombre)
-                .HasColumnName("nombres_paciente");
-            modelBuilder.Entity<Pacientes>().Property(u => u.nombre)
-                .HasColumnName("nombres_paciente");
+            modelBuilder.Entity<Pacientes>().ToTable("PACIENTES_DATA")
+            .Property(p => p.nombre).HasColumnName("nombres_paciente");
+
         }
 
     }
