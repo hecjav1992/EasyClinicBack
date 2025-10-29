@@ -7,6 +7,7 @@ namespace EasyClinic.Server.Model
     [Table("PACIENTES_DATA")]
     public class Pacientes
     {
+        [Key]
         public int Id_pacientes_data {  get; set; }
         public string genero_paciente {  get; set; }
         public string cedula { get; set; }
