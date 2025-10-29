@@ -22,6 +22,7 @@ namespace EasyClinic.Server.Controllers
             .Where(u => u.usuario == request.usuario && u.contrasena == request.contrasena)
             .Select(u => new {
                 u.id_usuario,
+                u.nombre,
                 u.usuario,
                 u.contrasena,
                 u.rol
@@ -31,7 +32,7 @@ namespace EasyClinic.Server.Controllers
             if (user != null)
             {
 
-                return Ok(new { success = true, token = "token_generado_123", message = user.rol,nombre=user.usuario });
+                return Ok(new { success = true, token = "token_generado_123", message = user.rol, nombre=user.nombre });
             }
 
             return Unauthorized(new { success = false, message = "Credenciales inválidas" });
