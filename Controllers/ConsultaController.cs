@@ -20,10 +20,10 @@ namespace EasyClinic.Server.Controllers
                 .Where(u => u.Id_pacientes_data == 1)
                 .Select(u => new {
                     u.id_usuario,
-                    u.nombre,
-                    u.usuario,
-                    u.contrasena,
-                    u.rol
+                    u.genero_paciente,
+                    u.FN_paciente,
+                    u.Ocupacion_paciente
+      
                 })
                 .FirstOrDefaultAsync();
             return Ok(pacientes);
