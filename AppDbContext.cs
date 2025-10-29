@@ -8,6 +8,7 @@ namespace EasyClinic.Server
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<Usuarios> Usuarios { get; set; }
+        public DbSet<Pacientes> Pacientes { get; set; }
 
     }
 }
