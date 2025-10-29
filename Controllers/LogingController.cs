@@ -31,7 +31,7 @@ namespace EasyClinic.Server.Controllers
             if (user != null)
             {
 
-                return Ok(new { success = true, token = "token_generado_123", message = user.rol });
+                return Ok(new { success = true, token = "token_generado_123", message = user.rol,nombre=user.usuario });
             }
 
             return Unauthorized(new { success = false, message = "Credenciales inválidas" });
