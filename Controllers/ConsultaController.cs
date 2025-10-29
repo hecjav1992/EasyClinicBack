@@ -19,7 +19,7 @@ namespace EasyClinic.Server.Controllers
             var pacientes = await _context.Pacientes
                 .Where(u => u.Id_pacientes_data == 1)
                 .Select(u => new {
-                    u.id_usuario,
+                    u.Id_pacientes_data,
                     u.genero_paciente,
                     u.FN_paciente,
                     u.Ocupacion_paciente
