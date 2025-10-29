@@ -21,7 +21,6 @@ namespace EasyClinic.Server.Controllers
                 .Select(u => new {
                     u.Id_pacientes_data,
                     u.genero_paciente,
-                    u.FN_paciente,
                     u.Ocupacion_paciente
       
                 })
