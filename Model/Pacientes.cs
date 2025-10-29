@@ -5,8 +5,9 @@ using System.ComponentModel.DataAnnotations;
 namespace EasyClinic.Server.Model
 {
     [Table("PACIENTES_DATA")]
-    public class Pacientes
+    public class Pacientes:Usuarios
     {
+        public Pacientes(Usuarios usuarios) { }
         [Key]
         public int Id_pacientes_data {  get; set; }
         public string genero_paciente {  get; set; }

@@ -26,6 +26,7 @@ namespace EasyClinic.Server.Controllers
                 u.usuario,
                 u.contrasena,
                 u.rol
+
             })
              .FirstOrDefaultAsync();
 
