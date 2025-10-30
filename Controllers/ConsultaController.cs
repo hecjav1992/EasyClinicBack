@@ -26,7 +26,10 @@ namespace EasyClinic.Server.Controllers
       
                 })
                 .ToListAsync();
-            return Ok(pacientes);
+            return Ok(new
+            {
+                message = pacientes
+            });
         }
      
     }
