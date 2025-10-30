@@ -9,15 +9,5 @@ namespace EasyClinic.Server
 
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Pacientes> Pacientes { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Usuarios>().ToTable("Usuarios");
-            modelBuilder.Entity<Pacientes>().ToTable("PACIENTES_DATA")
-            .Property(p => p.nombre).HasColumnName("nombres_paciente");
-
-        }
-
     }
 }
