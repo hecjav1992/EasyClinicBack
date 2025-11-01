@@ -18,6 +18,7 @@ namespace EasyClinic.Server.Controllers
         {
             var pacientes = await _context.Pacientes
                 .Where(u => u.Id_pacientes_data > 1 && u.Id_pacientes_data<30)
+                .OrderBy(u => u.Id_pacientes_data)
                 .Select(u => new {
                     u.Id_pacientes_data,
                     u.nombre,
