@@ -17,7 +17,7 @@ namespace EasyClinic.Server.Controllers
         public async Task<IActionResult>get([FromQuery] int? minId)
         {
             var pacientes = await _context.Pacientes
-                .Where(u => (u.Id_pacientes_data.ToString().Contains(minId.Value.ToString())))
+                .Where(u => !minId.HasValue || u.Id_pacientes_data >= minId.Value)
                 .OrderBy(u => u.Id_pacientes_data)
                 .Select(u => new {
                     u.Id_pacientes_data,
