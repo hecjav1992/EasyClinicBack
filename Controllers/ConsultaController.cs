@@ -17,7 +17,7 @@ namespace EasyClinic.Server.Controllers
         public async Task<IActionResult>get()
         {
             var pacientes = await _context.Pacientes
-                .Where(u => u.Id_pacientes_data == 1)
+                .Where(u => u.Id_pacientes_data > 1)
                 .Select(u => new {
                     u.Id_pacientes_data,
                     u.nombre,
@@ -25,6 +25,7 @@ namespace EasyClinic.Server.Controllers
                     u.Ocupacion_paciente
       
                 })
+                .Take(10)
                 .ToListAsync();
             return Ok(new
             {
