@@ -14,11 +14,21 @@ namespace EasyClinic.Server.Controllers
         _context = context;
         }
 
-        public async Task<IActionResult>get([FromQuery] int? minId)
+        public async Task<IActionResult>get([FromQuery] string? minId)
         {
-            var pacientes = await _context.Pacientes
-                .Where(u => !minId.HasValue || u.Id_pacientes_data >= minId.Value
-                || u.nombre.Contains(minId.Value.ToString()))
+            var query = _context.Pacientes.AsQueryable();
+
+            if (int.TryParse(minId, out int idBuscado))
+            {
+                query = query.Where(u => u.Id_pacientes_data == idBuscado);
+            }
+            else if (!string.IsNullOrEmpty(minId))
+            {
+                query = query.Where(u => u.nombre.Contains(minId));
+            }
+
+
+            var pacientes = await query
                 .OrderBy(u => u.Id_pacientes_data)
                 .Select(u => new {
                     u.Id_pacientes_data,
