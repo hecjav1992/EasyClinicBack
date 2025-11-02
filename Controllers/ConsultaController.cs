@@ -32,6 +32,7 @@ namespace EasyClinic.Server.Controllers
                     u.Id_pacientes_data,
                     u.cedula,
                     u.nombre,
+                    u.FN_paciente
                 })
                 .Take(10)
                 .ToListAsync();
@@ -50,8 +51,7 @@ namespace EasyClinic.Server.Controllers
                 .Select(u => new {
                     u.Id_pacientes_data,
                     u.cedula,
-                    u.nombre,
-                    u.FN_paciente
+                    u.nombre
                 })
                 .ToListAsync();
             if (!pacientes.Any())
