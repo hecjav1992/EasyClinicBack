@@ -21,10 +21,8 @@ namespace EasyClinic.Server.Controllers
                 .OrderBy(u => u.Id_pacientes_data)
                 .Select(u => new {
                     u.Id_pacientes_data,
+                    u.cedula,
                     u.nombre,
-                    u.genero_paciente,
-                    u.Ocupacion_paciente
-      
                 })
                 .Take(10)
                 .ToListAsync();
