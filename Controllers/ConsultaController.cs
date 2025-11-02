@@ -14,38 +14,24 @@ namespace EasyClinic.Server.Controllers
         _context = context;
         }
 
-        public async Task<IActionResult> Get([FromQuery] string? filtro)
+        public async Task<IActionResult>get([FromQuery] int? minId)
         {
-            // Empezamos con la query base
-            var query = _context.Pacientes.AsQueryable();
-
-            if (!string.IsNullOrEmpty(filtro))
-            {
-                // Verificamos si el filtro es numérico
-                bool esNumero = int.TryParse(filtro, out int idBuscado);
-
-                query = query.Where(u =>
-                    (esNumero && u.Id_pacientes_data == idBuscado) || // búsqueda por número exacto
-                    u.nombre.ToLower().Contains(filtro.ToLower())      // búsqueda por nombre
-                );
-            }
-
-            var pacientes = await query
+            var pacientes = await _context.Pacientes
+                .Where(u => !minId.HasValue || u.Id_pacientes_data >= minId.Value
+                || u.nombre.Contains(minId.Value.ToString()))
                 .OrderBy(u => u.Id_pacientes_data)
-                .Select(u => new
-                {
+                .Select(u => new {
                     u.Id_pacientes_data,
                     u.cedula,
                     u.nombre,
                 })
                 .Take(10)
                 .ToListAsync();
-
             return Ok(new
             {
                 message = pacientes
             });
         }
-
+     
     }
 }
