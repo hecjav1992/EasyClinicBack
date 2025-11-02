@@ -42,6 +42,28 @@ namespace EasyClinic.Server.Controllers
                 message = pacientes
             });
         }
-     
+
+        [HttpGet("getpaciente")]
+        public async Task<IActionResult> getpaciente([FromQuery] int? minId)
+        {
+
+            var pacientes = await _context.Pacientes
+                .Where(u => u.Id_pacientes_data == minId)
+                .Select(u => new {
+                    u.Id_pacientes_data,
+                    u.cedula,
+                    u.nombre,
+                })
+                .ToListAsync();
+            if (!pacientes.Any())
+                return NotFound(new { message = "Paciente no encontrado" });
+
+            return Ok(new
+            {
+                nombre= pacientes[0].nombre
+
+            });
+        }
+
     }
 }
