@@ -60,7 +60,7 @@ namespace EasyClinic.Server.Controllers
 
             return Ok(new
             {
-                nombre= pacientes[0].nombre
+                message= pacientes
 
             });
         }
