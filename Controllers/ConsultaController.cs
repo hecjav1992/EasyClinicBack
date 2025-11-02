@@ -26,8 +26,6 @@ namespace EasyClinic.Server.Controllers
             {
                 query = query.Where(u => u.nombre.Contains(minId));
             }
-
-
             var pacientes = await query
                 .OrderBy(u => u.Id_pacientes_data)
                 .Select(u => new {
@@ -53,6 +51,7 @@ namespace EasyClinic.Server.Controllers
                     u.Id_pacientes_data,
                     u.cedula,
                     u.nombre,
+                    u.FN_paciente
                 })
                 .ToListAsync();
             if (!pacientes.Any())
