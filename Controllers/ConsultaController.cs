@@ -32,7 +32,8 @@ namespace EasyClinic.Server.Controllers
                     u.Id_pacientes_data,
                     u.cedula,
                     u.nombre,
-                    u.FN_paciente
+                    u.FN_paciente,
+                    u.genero_paciente
                 })
                 .Take(10)
                 .ToListAsync();
