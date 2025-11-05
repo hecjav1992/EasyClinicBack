@@ -66,18 +66,13 @@ namespace EasyClinic.Server.Controllers
                 message = pacientes
 
             });
-
-
-
-
-
         }
 
         [HttpGet("historialpaciente")]
         public async Task<IActionResult> gethistorial([FromQuery] int? minId)
         {
             var atenciones = await _context.Atencion
-                .Where(u=> u.cedula==minId.ToString())
+                .Where(u=> u.Id_pacientes_data==minId)
                 .OrderBy(u => u.Id_atencion)
                 .Select(u => new
                 {
