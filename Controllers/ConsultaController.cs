@@ -82,6 +82,7 @@ namespace EasyClinic.Server.Controllers
                     u.nombre,
                     u.hra
                 })
+                .Distinct()
                 .Take(4)
                 .ToListAsync();
             if (!atenciones.Any())
