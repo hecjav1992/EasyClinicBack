@@ -20,5 +20,7 @@ namespace EasyClinic.Server.Model
         public DateTime? FN_paciente { get; set; }
         public int edad_paciente { get; set; }
         public string? Direccion_paciente { get; set; }
+        [Column("HEA")]
+        public string? hra { get; set; }
     }
 }
