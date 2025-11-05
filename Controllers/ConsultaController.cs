@@ -10,11 +10,12 @@ namespace EasyClinic.Server.Controllers
     {
         private readonly AppDbContext _context;
 
-        public ConsultaController( AppDbContext context ) {
-        _context = context;
+        public ConsultaController(AppDbContext context)
+        {
+            _context = context;
         }
 
-        public async Task<IActionResult>get([FromQuery] string? minId)
+        public async Task<IActionResult> get([FromQuery] string? minId)
         {
             var query = _context.Pacientes.AsQueryable();
 
@@ -28,7 +29,8 @@ namespace EasyClinic.Server.Controllers
             }
             var pacientes = await query
                 .OrderBy(u => u.Id_pacientes_data)
-                .Select(u => new {
+                .Select(u => new
+                {
                     u.Id_pacientes_data,
                     u.cedula,
                     u.nombre,
@@ -49,7 +51,8 @@ namespace EasyClinic.Server.Controllers
 
             var pacientes = await _context.Pacientes
                 .Where(u => u.Id_pacientes_data == minId)
-                .Select(u => new {
+                .Select(u => new
+                {
                     u.Id_pacientes_data,
                     u.cedula,
                     u.nombre
@@ -60,10 +63,40 @@ namespace EasyClinic.Server.Controllers
 
             return Ok(new
             {
-                message= pacientes
+                message = pacientes
+
+            });
+
+
+
+
+
+        }
+
+        [HttpGet("historialpaciente")]
+        public async Task<IActionResult> gethistorial([FromQuery] int? minId)
+        {
+            var atenciones = await _context.Atencion
+                .OrderBy(u => u.Id_pacientes_data)
+                .Select(u => new
+                {
+                    u.Id_atencion,
+                    u.Id_pacientes_data,
+                    u.cedula,
+                    u.nombre,
+                    u.FN_paciente,
+                    u.genero_paciente
+                })
+                .Take(3)
+                .ToListAsync();
+            if (!atenciones.Any())
+                return NotFound(new { message = "Atencion no encontrado" });
+
+            return Ok(new
+            {
+                message = atenciones
 
             });
         }
-
     }
 }

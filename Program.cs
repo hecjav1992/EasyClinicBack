@@ -18,7 +18,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// CORS
+
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 builder.Services.AddCors(options =>
 {
@@ -36,8 +36,6 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
-
-// Middlewares
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
@@ -48,15 +46,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-// ?? CORS debe ir aquí
 app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
-
-// Map Controllers y fallback SPA
 app.MapControllers();
 app.MapFallbackToFile("/index.html");
-
 app.Run();
 

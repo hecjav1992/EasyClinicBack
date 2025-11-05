@@ -9,5 +9,6 @@ namespace EasyClinic.Server
 
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Pacientes> Pacientes { get; set; }
+        public DbSet<Atencion> Atencion { get; set; }
     }
 }
