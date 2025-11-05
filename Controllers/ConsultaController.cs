@@ -82,7 +82,7 @@ namespace EasyClinic.Server.Controllers
                     u.nombre,
                     u.hra
                 })
-                .Take(3)
+                .Take(4)
                 .ToListAsync();
             if (!atenciones.Any())
                 return NotFound(new { message = "Atencion no encontrado" });
