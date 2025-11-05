@@ -77,10 +77,12 @@ namespace EasyClinic.Server.Controllers
         public async Task<IActionResult> gethistorial([FromQuery] int? minId)
         {
             var atenciones = await _context.Atencion
+                .Where(u=> u.cedula==minId.ToString())
                 .OrderBy(u => u.Id_pacientes_data)
                 .Select(u => new
                 {
                     u.Id_atencion,
+                    u.cedula,
                     u.Id_pacientes_data,
                     u.nombre
                 })
