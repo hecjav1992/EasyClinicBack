@@ -73,7 +73,7 @@ namespace EasyClinic.Server.Controllers
         {
             var atenciones = await _context.Atencion
                 .Where(u=> u.Id_pacientes_data==minId)
-                .OrderBy(u => u.Id_atencion)
+                .OrderByDescending(u => u.Id_atencion)
                 .Select(u => new
                 {
                     u.Id_atencion,
