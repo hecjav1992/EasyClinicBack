@@ -35,7 +35,9 @@ namespace EasyClinic.Server.Controllers
                     u.cedula,
                     u.nombre,
                     u.FN_paciente,
-                    u.genero_paciente
+                    u.genero_paciente,
+                    u.Alergias_paciente
+                   
                 })
                 .Take(10)
                 .ToListAsync();
@@ -79,7 +81,10 @@ namespace EasyClinic.Server.Controllers
                     u.cedula,
                     u.Id_pacientes_data,
                     u.nombre,
-                    u.hra
+                    u.hra,
+                    u.peso,
+                    u.talla_atencion,
+                    u.Fecha_atencion
                 })
                 .Distinct()
                 .OrderByDescending(u => u.Id_atencion)
