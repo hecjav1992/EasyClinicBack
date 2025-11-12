@@ -38,7 +38,8 @@ namespace EasyClinic.Server.Controllers
                     u.genero_paciente,
                     u.Alergias_paciente,
                     u.Apf_paciente,
-                    u.App_paciente
+                    u.App_paciente,
+                   
 
                 })
                 .Take(10)
@@ -86,7 +87,8 @@ namespace EasyClinic.Server.Controllers
                     u.hra,
                     u.peso,
                     u.talla_atencion,
-                    u.Fecha_atencion
+                    u.Fecha_atencion,
+                    u.Examenfisico_paciente
                 })
                 .Distinct()
                 .OrderByDescending(u => u.Id_atencion)
