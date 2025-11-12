@@ -37,7 +37,8 @@ namespace EasyClinic.Server.Controllers
                     u.FN_paciente,
                     u.genero_paciente,
                     u.Alergias_paciente,
-                    u.Apf_paciente
+                    u.Apf_paciente,
+                    u.App_paciente
 
                 })
                 .Take(10)
