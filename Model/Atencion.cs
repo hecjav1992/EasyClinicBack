@@ -26,7 +26,6 @@ namespace EasyClinic.Server.Model
         public DateTime? Fecha_atencion { get;set; }
         public float? peso { get; set; }
         public float? talla_atencion { get; set; }
-
         public string? Examenfisico_paciente { get; set; }
         public string? tratamiento_paciente { get; set; }
     }
