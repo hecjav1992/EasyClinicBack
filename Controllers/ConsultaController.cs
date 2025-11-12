@@ -88,7 +88,8 @@ namespace EasyClinic.Server.Controllers
                     u.peso,
                     u.talla_atencion,
                     u.Fecha_atencion,
-                    u.Examenfisico_paciente
+                    u.Examenfisico_paciente,
+                    u.tratamiento_paciente
                 })
                 .Distinct()
                 .OrderByDescending(u => u.Id_atencion)

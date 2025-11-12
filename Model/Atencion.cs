@@ -28,5 +28,6 @@ namespace EasyClinic.Server.Model
         public float? talla_atencion { get; set; }
 
         public string? Examenfisico_paciente { get; set; }
+        public string? tratamiento_paciente { get; set; }
     }
 }
