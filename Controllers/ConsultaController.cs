@@ -36,8 +36,9 @@ namespace EasyClinic.Server.Controllers
                     u.nombre,
                     u.FN_paciente,
                     u.genero_paciente,
-                    u.Alergias_paciente
-                   
+                    u.Alergias_paciente,
+                    u.Apf_paciente
+
                 })
                 .Take(10)
                 .ToListAsync();

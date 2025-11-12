@@ -22,5 +22,6 @@ namespace EasyClinic.Server.Model
         public string? Direccion_paciente { get; set; }
         public string? App_paciente { get; set; }
         public string? Alergias_paciente { get; set; }
+        public string? Apf_paciente { get; set; }
     }
 }
