@@ -7,17 +7,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Kestrel
 builder.WebHost.ConfigureKestrel(serverOptions =>
 {
     serverOptions.ListenAnyIP(80);
+    /*
     serverOptions.ListenAnyIP(443, listenOptions =>
     {
         listenOptions.UseHttps();
     });
+    */
 });
 
-// Controllers & Swagger
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
