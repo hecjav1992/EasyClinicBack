@@ -30,9 +30,6 @@ builder.Services.AddCors(options =>
         policy =>
         {
             policy.WithOrigins(
-                 "http://localhost",
-                 "http://localhost:5084",
-                "https://localhost:7237",
                 "http://localhost:4200",
                 "https://localhost:4200",
                 "https://easyclinicfront.onrender.com")
