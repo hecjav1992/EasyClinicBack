@@ -15,7 +15,7 @@ namespace EasyClinic.Server.Controllers
         {
             _context = context;
         }
-
+        [HttpPost]
         public async Task<IActionResult> Post([FromBody]  LoginRequest request)
         {
             var user = await _context.Usuarios

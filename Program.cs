@@ -11,6 +11,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.WebHost.ConfigureKestrel(serverOptions =>
 {
     serverOptions.ListenAnyIP(80);
+    serverOptions.ListenAnyIP(443, listenOptions =>
+    {
+        listenOptions.UseHttps();
+    });
 });
 
 // Controllers & Swagger
@@ -26,6 +30,9 @@ builder.Services.AddCors(options =>
         policy =>
         {
             policy.WithOrigins(
+                 "http://localhost",
+                 "http://localhost:5084",
+                "https://localhost:7237",
                 "http://localhost:4200",
                 "https://localhost:4200",
                 "https://easyclinicfront.onrender.com")
@@ -38,7 +45,6 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 app.UseDefaultFiles();
 app.UseStaticFiles();
-
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

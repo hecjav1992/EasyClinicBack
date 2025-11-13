@@ -14,7 +14,7 @@ namespace EasyClinic.Server.Controllers
         {
             _context = context;
         }
-
+        [HttpGet]
         public async Task<IActionResult> get([FromQuery] string? minId)
         {
             var query = _context.Pacientes.AsQueryable();
