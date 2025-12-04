@@ -110,15 +110,14 @@ namespace EasyClinic.Server.Controllers
         [HttpPost("crearPaciente")]
         public async Task<IActionResult> postCrearPaciente([FromQuery] Pacientes? datos)
         {
-            
-            var crarPaciente = await _context.Pacientes
+                 var crarPaciente = await _context.Pacientes
                 .Select(u => new
                 {
                     u.cedula,
                     u.nombre
                 }).ToListAsync();
             
-            return Ok(new {success= true,resultado=datos});
+            return Ok(new { success = true, resultado = datos.nombre });
         }
     }
 }
