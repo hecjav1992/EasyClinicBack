@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using EasyClinic.Server.Model;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace EasyClinic.Server.Controllers
 {
@@ -103,6 +105,20 @@ namespace EasyClinic.Server.Controllers
                 message = atenciones
 
             });
+        }
+
+        [HttpPost("crearPaciente")]
+        public async Task<IActionResult> postCrearPaciente([FromQuery] Pacientes? datos)
+        {
+            
+            var crarPaciente = await _context.Pacientes
+                .Select(u => new
+                {
+                    u.cedula,
+                    u.nombre
+                }).ToListAsync();
+            
+            return Ok(new {success= true,resultado=datos});
         }
     }
 }
