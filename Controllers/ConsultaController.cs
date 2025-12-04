@@ -117,7 +117,7 @@ namespace EasyClinic.Server.Controllers
                     u.nombre
                 }).ToListAsync();
             
-            return Ok(new { success = true, resultado = datos.nombre });
+            return Ok(new { success = true, message = datos.nombre });
         }
     }
 }
