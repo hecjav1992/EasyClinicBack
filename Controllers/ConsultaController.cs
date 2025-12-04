@@ -108,7 +108,7 @@ namespace EasyClinic.Server.Controllers
         }
 
         [HttpPost("crearPaciente")]
-        public async Task<IActionResult> postCrearPaciente([FromQuery] string? datos)
+        public async Task<IActionResult> postCrearPaciente([FromQuery] Pacientes? datos)
         {
             
             var crarPaciente = await _context.Pacientes
