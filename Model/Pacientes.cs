@@ -11,6 +11,7 @@ namespace EasyClinic.Server.Model
         public int Id_pacientes_data {  get; set; }
         [Column("nombres_paciente")]
         public  string? nombre { get; set; }
+        public string? apellido_paciente { get; set; }
         public string? genero_paciente {  get; set; }
         [Column("cedula_paciente")]
         public string? cedula { get; set; }
