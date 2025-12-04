@@ -8,20 +8,21 @@
     ".NETCoreApp,Version=v8.0": {
       "EasyClinic.Server/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.SpaProxy": "8.0.21",
+          "Microsoft.AspNetCore.SpaProxy": "8.0.22",
           "Microsoft.EntityFrameworkCore": "9.0.10",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4",
-          "Swashbuckle.AspNetCore": "6.4.0"
+          "Swashbuckle.AspNetCore": "6.4.0",
+          "System.Collections": "4.3.0"
         },
         "runtime": {
           "EasyClinic.Server.dll": {}
         }
       },
-      "Microsoft.AspNetCore.SpaProxy/8.0.21": {
+      "Microsoft.AspNetCore.SpaProxy/8.0.22": {
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.SpaProxy.dll": {
-            "assemblyVersion": "8.0.21.0",
-            "fileVersion": "8.0.2125.47515"
+            "assemblyVersion": "8.0.22.0",
+            "fileVersion": "8.0.2225.52808"
           }
         }
       },
@@ -164,6 +165,8 @@
           }
         }
       },
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "Microsoft.NETCore.Targets/1.1.0": {},
       "Microsoft.OpenApi/1.2.3": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.OpenApi.dll": {
@@ -234,12 +237,25 @@
           }
         }
       },
+      "System.Collections/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
       "System.Diagnostics.DiagnosticSource/9.0.10": {
         "runtime": {
           "lib/net8.0/System.Diagnostics.DiagnosticSource.dll": {
             "assemblyVersion": "9.0.0.0",
             "fileVersion": "9.0.1025.47515"
           }
+        }
+      },
+      "System.Runtime/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0"
         }
       }
     }
@@ -250,12 +266,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.SpaProxy/8.0.21": {
+    "Microsoft.AspNetCore.SpaProxy/8.0.22": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wM7xZ0sWE4ASH5w7rw6zqRmfoeEA/mkgZw+KQUfDG/x48r9+8T5vTDjtKWPeBYeLczUR0wjKsU6h3pL6cdOCxA==",
-      "path": "microsoft.aspnetcore.spaproxy/8.0.21",
-      "hashPath": "microsoft.aspnetcore.spaproxy.8.0.21.nupkg.sha512"
+      "sha512": "sha512-CFnPIbLHsuLKKsJNC1wMFaeKvxRfDS8fnVzDxLdCI6kMbHB91tCLOm8+rPpAGV99VJSFNhduLEWx22Zjw30wag==",
+      "path": "microsoft.aspnetcore.spaproxy/8.0.22",
+      "hashPath": "microsoft.aspnetcore.spaproxy.8.0.22.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore/9.0.10": {
       "type": "package",
@@ -355,6 +371,20 @@
       "path": "microsoft.extensions.primitives/9.0.10",
       "hashPath": "microsoft.extensions.primitives.9.0.10.nupkg.sha512"
     },
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Targets/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
+      "path": "microsoft.netcore.targets/1.1.0",
+      "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
+    },
     "Microsoft.OpenApi/1.2.3": {
       "type": "package",
       "serviceable": true,
@@ -404,12 +434,26 @@
       "path": "swashbuckle.aspnetcore.swaggerui/6.4.0",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
     },
+    "System.Collections/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3Dcj85/TBdVpL5Zr+gEEBUuFe2icOnLalmEh9hfck1PTYbbyWuZgh4fmm2ysCLTrqLQw6t3TgTyJ+VLp+Qb+Lw==",
+      "path": "system.collections/4.3.0",
+      "hashPath": "system.collections.4.3.0.nupkg.sha512"
+    },
     "System.Diagnostics.DiagnosticSource/9.0.10": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-uIpKiKp7EWlYZBK71jYP+maGYjDY9YTi/FxBlZoqDzM1ZHZB7gLqUm4jHvRFwaKfR1/Lrt2rQih9LGPIKyNEow==",
       "path": "system.diagnostics.diagnosticsource/9.0.10",
       "hashPath": "system.diagnostics.diagnosticsource.9.0.10.nupkg.sha512"
+    },
+    "System.Runtime/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JufQi0vPQ0xGnAczR13AUFglDyVYt4Kqnz1AZaiKZ5+GICq0/1MH/mO/eAJHt/mHW1zjKBJd7kV26SrxddAhiw==",
+      "path": "system.runtime/4.3.0",
+      "hashPath": "system.runtime.4.3.0.nupkg.sha512"
     }
   }
 }
