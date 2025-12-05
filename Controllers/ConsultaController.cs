@@ -112,12 +112,12 @@ namespace EasyClinic.Server.Controllers
         {
             var nuevo = new Pacientes
             {
-                nombre= datos.nombre,
-                apellido_paciente = datos.apellido_paciente,
-                genero_paciente = datos.genero_paciente,
-                cedula = datos.cedula,
-                FN_paciente = datos.FN_paciente,
-                telefono_paciente = datos.telefono_paciente
+                nombre= datos?.nombre,
+                apellido_paciente = datos?.apellido_paciente,
+             //   genero_paciente = datos?.genero_paciente,
+              //  cedula = datos?.cedula,
+               // FN_paciente = datos?.FN_paciente,
+              //  telefono_paciente = datos?.telefono_paciente
             };
 
             await _context.Pacientes.AddAsync(nuevo);
