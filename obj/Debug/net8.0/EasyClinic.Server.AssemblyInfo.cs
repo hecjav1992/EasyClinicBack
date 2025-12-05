@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EasyClinic.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+000117de279996dadaf71c088347d93deee22f77")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c1de061c678dca5403d72ae4c4bd0fd77813b11")]
 [assembly: System.Reflection.AssemblyProductAttribute("EasyClinic.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EasyClinic.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
