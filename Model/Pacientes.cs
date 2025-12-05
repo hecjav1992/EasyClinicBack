@@ -18,8 +18,8 @@ namespace EasyClinic.Server.Model
         public string? telefono { get; set; }
         public string? telefono_paciente { get;set; }    
         public string? Ocupacion_paciente { get; set; }
-        public DateTime? FN_paciente { get; set; }
-        public int edad_paciente { get; set; }
+        public DateTime?  FN_paciente { get; set; }
+        public int? edad_paciente { get; set; }
         public string? Direccion_paciente { get; set; }
         public string? Email_paciente { get; set; }
         public string? App_paciente { get; set; }
