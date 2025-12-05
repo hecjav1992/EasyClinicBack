@@ -8,7 +8,7 @@ namespace EasyClinic.Server.Model
     public class Pacientes
     {
         [Key]
-       // public int Id_pacientes_data {  get; set; }
+        public int Id_pacientes_data {  get; set; }
         [Column("nombres_paciente")]
         public  string? nombre { get; set; }
         public string? apellido_paciente { get; set; }
