@@ -112,6 +112,7 @@ namespace EasyClinic.Server.Controllers
         {
             var nuevo = new Pacientes
             {
+                Id_pacientes_data=5988,
                 nombre= datos?.nombre,
                 apellido_paciente = datos?.apellido_paciente,
              //   genero_paciente = datos?.genero_paciente,
