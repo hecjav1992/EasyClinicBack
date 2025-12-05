@@ -110,8 +110,8 @@ namespace EasyClinic.Server.Controllers
         [HttpPost("crearPaciente")]
         public async Task<IActionResult> postCrearPaciente([FromBody] Pacientes? datos)
         {
-          //  await _context.Pacientes.AddRangeAsync(datos);
-          //  await _context.SaveChangesAsync();
+            await _context.Pacientes.AddRangeAsync(datos);
+            await _context.SaveChangesAsync();
 
             return Ok(new { success = true, mensaje = datos });
         }
