@@ -110,13 +110,17 @@ namespace EasyClinic.Server.Controllers
         [HttpPost("crearPaciente")]
         public async Task<IActionResult> postCrearPaciente([FromBody] Pacientes? datos)
         {
+         
             var idP = await _context.Pacientes
            .OrderByDescending(u => u.Id_pacientes_data)
-           .Select(u => u.Id_pacientes_data)
+           .Select(u => new
+           {
+               u.Id_pacientes_data,
+           })
            .FirstOrDefaultAsync();
             var nuevo = new Pacientes
             {
-                Id_pacientes_data=idP+1,
+                Id_pacientes_data=idP.Id_pacientes_data+1,
                 nombre= datos?.nombre,
                 apellido_paciente = datos?.apellido_paciente,
                 genero_paciente = datos?.genero_paciente,
@@ -124,12 +128,19 @@ namespace EasyClinic.Server.Controllers
                 FN_paciente = DateTime.SpecifyKind((DateTime)datos?.FN_paciente, DateTimeKind.Utc),
                 telefono_paciente = datos?.telefono_paciente
             };
+            if (!await _context.Pacientes.AnyAsync(u => u.cedula == nuevo.cedula))
+            {
+                await _context.Pacientes.AddAsync(nuevo);
+                await _context.SaveChangesAsync();
 
-            await _context.Pacientes.AddAsync(nuevo);
-            await _context.SaveChangesAsync();
-      
+                return Ok(new { success = true, mensaje = nuevo });
+            }
+            else
+            {
+                return Ok(new { success = false, mensaje = "Cédula ya registrada" });
+            }
 
-            return Ok(new { success = true, mensaje = nuevo });
+
         }
     }
 }
