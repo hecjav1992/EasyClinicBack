@@ -137,7 +137,7 @@ namespace EasyClinic.Server.Controllers
             }
             else
             {
-                return Ok(new { success = false, mensaje = "Cédula ya registrada" });
+                return Ok(new { success = true, mensaje = "Cédula ya registrada" });
             }
 
 
