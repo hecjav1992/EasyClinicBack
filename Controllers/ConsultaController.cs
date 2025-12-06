@@ -129,11 +129,7 @@ namespace EasyClinic.Server.Controllers
                 DateTimeKind.Utc),
                 telefono_paciente = datos?.telefono_paciente
             };
-            Console.WriteLine("CEDULA RECIBIDA: " + datos?.cedula);
-            bool existeCedula = await _context.Pacientes
-                .AnyAsync(u => u.cedula == datos.cedula);
-            if (existeCedula)
-                return Ok(new { success = false, mensaje = datos.cedula});
+            
             await _context.Pacientes.AddAsync(nuevo);
             await _context.SaveChangesAsync();
 
