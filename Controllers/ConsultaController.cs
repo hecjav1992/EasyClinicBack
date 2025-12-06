@@ -116,8 +116,7 @@ namespace EasyClinic.Server.Controllers
            .FirstOrDefaultAsync();
             var nuevo = new Pacientes
             {
-
-                Id_pacientes_data=idP,
+                Id_pacientes_data=idP+1,
                 nombre= datos?.nombre,
                 apellido_paciente = datos?.apellido_paciente,
              //   genero_paciente = datos?.genero_paciente,
