@@ -132,11 +132,11 @@ namespace EasyClinic.Server.Controllers
             bool existeCedula = await _context.Pacientes
                 .AnyAsync(u => u.cedula == datos.cedula);
             if (existeCedula)
-                return Ok(new { success = false, mensaje = datos.cedula});
+                return Ok(new { success = false, mensaje = "Cedula ya existente"});
             await _context.Pacientes.AddAsync(nuevo);
             await _context.SaveChangesAsync();
 
-            return Ok(new { success = true, mensaje = nuevo });
+            return Ok(new { success = true, mensaje = "Pacinete registrado Correctamente" });
 
 
 
