@@ -121,7 +121,7 @@ namespace EasyClinic.Server.Controllers
                 apellido_paciente = datos?.apellido_paciente,
                 genero_paciente = datos?.genero_paciente,
                 cedula = datos?.cedula,
-                FN_paciente = datos?.FN_paciente,
+                FN_paciente = DateTime.SpecifyKind((DateTime)datos?.FN_paciente, DateTimeKind.Utc),
                 telefono_paciente = datos?.telefono_paciente
             };
 
