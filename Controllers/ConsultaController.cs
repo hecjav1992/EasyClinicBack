@@ -128,17 +128,16 @@ namespace EasyClinic.Server.Controllers
                 FN_paciente = DateTime.SpecifyKind((DateTime)datos?.FN_paciente, DateTimeKind.Utc),
                 telefono_paciente = datos?.telefono_paciente
             };
-            if (!await _context.Pacientes.AnyAsync(u => u.cedula == nuevo.cedula))
-            {
-                await _context.Pacientes.AddAsync(nuevo);
-                await _context.SaveChangesAsync();
+            bool existeCedula = await _context.Pacientes
+            .AnyAsync(u => u.cedula == datos.cedula);
+            if (existeCedula)
+                return Ok(new { success = false, mensaje = "Cédula ya registrada" });
 
-                return Ok(new { success = true, mensaje = nuevo });
-            }
-            else
-            {
-                return Ok(new { success = true, mensaje = "Cédula ya registrada" });
-            }
+            await _context.Pacientes.AddAsync(nuevo);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { success = true, mensaje = nuevo });
+
 
 
         }
