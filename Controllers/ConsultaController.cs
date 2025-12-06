@@ -129,7 +129,7 @@ namespace EasyClinic.Server.Controllers
             await _context.SaveChangesAsync();
       
 
-            return Ok(new { success = true, mensaje = datos });
+            return Ok(new { success = true, mensaje = nuevo });
         }
     }
 }
