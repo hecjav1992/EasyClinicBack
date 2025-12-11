@@ -17,7 +17,7 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
     */
 });
 
-
+builder.Services.AddHttpClient("GoogleMaps");
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
