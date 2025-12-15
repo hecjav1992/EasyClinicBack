@@ -80,7 +80,7 @@ namespace EasyClinic.Server.Controllers
 
             string apiKey = _config["GoogleMaps:ApiKey"];
             string url =
-                $"https://maps.googleapis.com/maps/api/distancematrix/json?" +
+                $"https://maps.googleapis.com/maps/api/directions/json?" +
                 $"origins={Uri.EscapeDataString(origins)}&" +
                 $"destinations={Uri.EscapeDataString(destinations)}&" +
                 $"&departure_time=now&mode=driving" +
