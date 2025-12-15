@@ -78,7 +78,7 @@ namespace EasyClinic.Server.Controllers
             if (string.IsNullOrWhiteSpace(origins) || string.IsNullOrWhiteSpace(destinations))
                 return BadRequest("origins y destinations son obligatorios");
 
-            string apiKey = _config["GoogleMaps:ApiKey"];
+            string ApiKeyRoutes = _config["GoogleMaps:ApiKeyRoutes"];
             string url =
                 $"https://maps.googleapis.com/maps/api/directions/json?" +
                 $"origin={Uri.EscapeDataString(origins)}&" +
@@ -86,7 +86,7 @@ namespace EasyClinic.Server.Controllers
                 $"&departure_time=now&mode=driving" +
                 $"&traffic_mode=best_guess" +
                 $"&alternatives=true" +
-                $"&key={apiKey}";
+                $"&key={ApiKeyRoutes}";
 
             var client = _clientFactory.CreateClient("GoogleMaps");
             var response = await client.GetAsync(url);
