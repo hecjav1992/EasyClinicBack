@@ -101,9 +101,10 @@ namespace EasyClinic.Server.Controllers
 
 
             var bestdistancia = element
-             .GetProperty("overview_polyline")
-             .GetProperty("points")
-             .GetString();
+                 .GetProperty("routes")[0]
+                 .GetProperty("overview_polyline")
+                 .GetProperty("points")
+                 .GetString();
 
             return Ok(new { bestdistancia });
 
