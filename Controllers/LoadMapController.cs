@@ -65,7 +65,13 @@ namespace EasyClinic.Server.Controllers
                    .GetProperty("duration_in_traffic")
                    .GetProperty("text")
                    .GetString();
-                return Ok(new { distancia, duracion, duraciontrfic });
+
+               var bestdistancia=element
+                .GetProperty("overview_polyline")
+                .GetProperty("points")
+                .GetString();
+
+            return Ok(new { distancia, duracion, duraciontrfic,bestdistancia });
 
             }
 
