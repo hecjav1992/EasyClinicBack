@@ -66,17 +66,49 @@ namespace EasyClinic.Server.Controllers
                    .GetProperty("text")
                    .GetString();
 
-               var bestdistancia=element
-                .GetProperty("overview_polyline")
-                .GetProperty("points")
-                .GetString();
-
-            return Ok(new { distancia, duracion, duraciontrfic,bestdistancia });
+             
+            return Ok(new { distancia, duracion, duraciontrfic });
 
             }
 
+        [HttpGet("bestRoute")]
+        public async Task<IActionResult> MejorRuta([FromQuery] string origins, [FromQuery] string destinations)
 
-        
+        {
+            if (string.IsNullOrWhiteSpace(origins) || string.IsNullOrWhiteSpace(destinations))
+                return BadRequest("origins y destinations son obligatorios");
+
+            string apiKey = _config["GoogleMaps:ApiKey"];
+            string url =
+                $"https://maps.googleapis.com/maps/api/distancematrix/json?" +
+                $"origins={Uri.EscapeDataString(origins)}&" +
+                $"destinations={Uri.EscapeDataString(destinations)}&" +
+                $"&departure_time=now&mode=driving" +
+                $"&traffic_mode=best_guess" +
+                $"&alternatives=true" +
+                $"units=metric&language=es&key={apiKey}";
+
+            var client = _clientFactory.CreateClient("GoogleMaps");
+            var response = await client.GetAsync(url);
+
+            if (!response.IsSuccessStatusCode)
+                return StatusCode((int)response.StatusCode, await response.Content.ReadAsStringAsync());
+
+            var json = await response.Content.ReadAsStringAsync();
+
+            using var doc = JsonDocument.Parse(json);
+            var element = doc.RootElement;
+
+
+            var bestdistancia = element
+             .GetProperty("overview_polyline")
+             .GetProperty("points")
+             .GetString();
+
+            return Ok(new { bestdistancia });
+
+        }
+
 
 
     }
