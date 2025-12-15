@@ -81,12 +81,12 @@ namespace EasyClinic.Server.Controllers
             string apiKey = _config["GoogleMaps:ApiKey"];
             string url =
                 $"https://maps.googleapis.com/maps/api/directions/json?" +
-                $"origins={Uri.EscapeDataString(origins)}&" +
-                $"destinations={Uri.EscapeDataString(destinations)}&" +
+                $"origin={Uri.EscapeDataString(origins)}&" +
+                $"destination={Uri.EscapeDataString(destinations)}&" +
                 $"&departure_time=now&mode=driving" +
                 $"&traffic_mode=best_guess" +
                 $"&alternatives=true" +
-                $"units=metric&language=es&key={apiKey}";
+                $"&key={apiKey}";
 
             var client = _clientFactory.CreateClient("GoogleMaps");
             var response = await client.GetAsync(url);
