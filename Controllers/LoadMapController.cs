@@ -30,6 +30,8 @@ namespace EasyClinic.Server.Controllers
                     $"origins={Uri.EscapeDataString(origins)}&" +
                     $"destinations={Uri.EscapeDataString(destinations)}&" +
                     $"&departure_time=now&mode=driving" +
+                    $"&traffic_mode=best_guess"+
+                    $"&alternatives=true"+
                     $"units=metric&language=es&key={apiKey}";
 
                 var client = _clientFactory.CreateClient("GoogleMaps");
